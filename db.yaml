@@ -32,9 +32,9 @@
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"
-      filter: version
-    ignore_errors: yes
-    register: mysql_connection_output
+      filter: version  # checking purpose if it is getting output...pwd set otherwise not set.
+    ignore_errors: yes  # we know the error first time it may come so we can handle the errors like this...
+    register: mysql_connection_output  # like cmd to execute and that out put used in ansible.
 
   - name: print output
     ansible.builtin.debug:
@@ -43,3 +43,5 @@
   - name: setup root password
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
     when: mysql_connection_output.failed is true # don't give {{ }} in when condition
+
+    #if pwd is already setup....just ignored otherwise setup.
