@@ -9,7 +9,7 @@
   
   - name: start and enable nginx
     ansible.builtin.service:
-      name: frontend
+      name: nginx
       state: started
       enabled: yes
 
