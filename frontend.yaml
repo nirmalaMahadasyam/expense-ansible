@@ -1,8 +1,6 @@
 - name: install the nginx server
   hosts: frontend
   become: yes
-  vars:
-  vars_prompt:
   tasks:
     - name: install nginx server
       ansible.builtin.dnf:
