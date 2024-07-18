@@ -8,7 +8,7 @@
   hosts: backend
   become: yes
   vars:
-    login_host: dbsql.nirmaladevops.cloud
+    login_host: db.nirmaladevops.cloud
     login_password: ExpenseApp@1  
   tasks:
   - name: disable default nodejs
